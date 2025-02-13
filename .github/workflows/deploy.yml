@@ -14,7 +14,7 @@ jobs:
       PORT: 8080
       MONGODB_CLUSTER_ADDRESS: cluster0.kd7m2.mongodb.net
       MONGODB_USERNAME: przemekmatt
-      MONGODB_PASSWORD: s7nJY7DEy6i7jcU
+      MONGODB_PASSWORD: NFonur1csxleMy3A
     steps:
       - name: Get Code
         uses: actions/checkout@v3
