@@ -8,6 +8,11 @@ jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
+    env: 
+      PORT: 8080
+      MONGODB_CLUSTER_ADDRESS: cluster0.kd7m2.mongodb.net
+      MONGODB_USERNAME: przemekmatt
+      MONGODB_PASSWORD: s7nJY7DEy6i7jcU@cluster0.kd7m2.mongodb.net
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -19,11 +24,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run server
-        run: npm start & npx wait-on http://127.0.0.1:XYZ
+        run: npm start & npx wait-on http://127.0.0.1:${{env.PORT}}
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "..."
+        run: echo "$${{env.MONGODB_USERNAME}}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
